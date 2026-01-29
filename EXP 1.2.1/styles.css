@@ -1,0 +1,86 @@
+:root {
+    --bg: #050f1f;
+    --panel: #0d203b;
+    --panel-soft: rgba(255, 255, 255, 0.04);
+    --text: #e5edf7;
+    --muted: #a4b3c7;
+    --accent: #7cc4ff;
+    --border: rgba(255, 255, 255, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    background: radial-gradient(circle at 20% 20%, rgba(124, 196, 255, 0.15), transparent 35%),
+                radial-gradient(circle at 80% 0%, rgba(124, 196, 255, 0.08), transparent 30%),
+                var(--bg);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.screen {
+    width: min(900px, 100%);
+    display: flex;
+    justify-content: center;
+}
+
+.panel {
+    width: min(640px, 100%);
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    position: relative;
+}
+
+.prompt {
+    margin: 0 0 12px;
+    font-size: 18px;
+    color: var(--muted);
+}
+
+textarea {
+    width: 100%;
+    background: var(--panel-soft);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    min-height: 180px;
+    font-size: 18px;
+    resize: none;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    line-height: 1.5;
+}
+
+textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(124, 196, 255, 0.25);
+}
+
+textarea.hit {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.25);
+}
+
+.counter {
+    position: absolute;
+    right: 20px;
+    bottom: 16px;
+    color: var(--muted);
+    font-size: 18px;
+}
+
+@media (max-width: 600px) {
+    .panel { padding: 18px; }
+    textarea { min-height: 150px; font-size: 16px; }
+    .counter { font-size: 16px; }
+}
